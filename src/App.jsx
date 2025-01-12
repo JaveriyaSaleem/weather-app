@@ -1,8 +1,11 @@
 import React from 'react'
 import { useRef } from 'react'
 import axios from 'axios'
+import Navbar from './Components/Navbar/Navbar'
+import './index.css'
 
 const App = () => {
+  
   let inputRef = useRef()
   const apiKey = '0042bc4f7f30e066c405fba7b88a57fa'
 const getCity = async()=>{
@@ -29,10 +32,10 @@ const localTime = new Date(utcTime + response.data.timezone * 1000);
 }
   
   return (
-    <div>
-      
-      <input type="text" ref={inputRef}/>
-      <button onClick={getCity}>Search</button>
+    <div className='poppins dark-gradient'>
+      <Navbar/>
+      {/* <input type="text" ref={inputRef}/>
+      <button onClick={getCity}>Search</button> */}
 
     </div>
   )
