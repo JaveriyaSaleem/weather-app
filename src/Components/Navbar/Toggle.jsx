@@ -17,7 +17,7 @@ const Toggle = () => {
         <div className="text-center w-48">
             <button
                 onClick={toggleTheme}
-                className="px-4 py-2 text-white rounded bg-blue-500 hover:bg-blue-600 rounded-full"
+                className="px-4 py-2 text-white bg-blue-500 hover:bg-blue-600 rounded-full"
             >
                  {theme === "light" ? "Light" : "Dark"} Mode
             </button>

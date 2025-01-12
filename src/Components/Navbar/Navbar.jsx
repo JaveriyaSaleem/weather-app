@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Input from './Input';
 import Toggle from './Toggle';
+import Time from './Time';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -46,12 +47,8 @@ const Navbar = () => {
                     <Input />
                 </div>
 
-                {/* Button */}
-                <div className="hidden md:inline-block md:w-48">
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full">
-                        09:12 AM
-                    </button>
-                </div>
+                {/* time */}
+<Time/>
             </div>
         </nav>
     );
