@@ -1,0 +1,39 @@
+import React, { useEffect, useState } from 'react';
+import "./city.css";
+import moment from 'moment';
+
+const City = () => {
+    const [momentTime, setMomentTime] = useState(moment().format('LT'));
+    const [month, setMonth] = useState(moment().format('llll'))
+    const [date, setDate] = useState(momentTime);
+    useEffect(() => {
+        let split = month.slice(0, 10)
+        console.log(split)
+        setMonth(split)
+    }, [])
+
+    useEffect(() => {
+
+        const interval = setInterval(() => {
+            const newTime = moment().format('LT'); // Get the latest time
+            setMomentTime(newTime);
+        }, 60000);
+        setDate(momentTime);
+        return () => clearInterval(interval);
+    }, []);
+
+    useEffect(() => {
+        let spliting = momentTime.slice(0, 5)
+        setDate(spliting);
+    }, [momentTime]);
+
+    return (
+        <div href="#" className="block max-w-sm p-6 bg-[#444444] rounded-xl box-shadow text-center">
+            <h5 className="mb-2 text-[36px] font-extrabold tracking-tight text-gray-900 dark:text-white">Karachi</h5>
+            <h5 className="mb-2 text-[96px] font-bold tracking-tight text-gray-900 dark:text-white">{date}</h5>
+            <p className="font-normal text-gray-700 dark:text-gray-400">{month}</p>
+        </div>
+    );
+};
+
+export default City;
