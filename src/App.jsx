@@ -4,6 +4,8 @@ import axios from 'axios'
 import Navbar from './Components/Navbar/Navbar'
 import './index.css'
 import City from './Components/City/City'
+import Weather from './Components/Weather/Weather'
+// import { inputRef } from './Components/Navbar/Input'
 
 const App = () => {
 
@@ -35,11 +37,12 @@ const localTime = new Date(utcTime + response.data.timezone * 1000);
   return (
     <div className='poppins dark-gradient'>
       <Navbar/>
-      <div>
+      <div className='grid grid-cols-3 px-4'>
         <City/>
+        <Weather/>
       </div>
-      {/* <input type="text" ref={inputRef}/>
-      <button onClick={getCity}>Search</button> */}
+      <input type="text" ref={inputRef}/>
+      <button onClick={getCity}>Search</button>
 
     </div>
   )

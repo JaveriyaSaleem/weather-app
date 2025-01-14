@@ -1,6 +1,9 @@
 import React from 'react'
+import { useRef } from 'react'
 
-const Input = () => {
+// export let inputRef = useRef(null)
+
+const Input = (props) => {
   return (
                           <form className=''>
                         <label htmlFor="search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -10,12 +13,12 @@ const Input = () => {
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                 </svg>
                             </div>
-                            <input type="search" id="search" className="block w-full md:w-[500px] p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-[#444444] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required />
-                            <button type="submit" className="text-white absolute end-2.5 bottom-2.5 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-4 py-2 bg-black hover:bg-black dark:focus:ring-blue-800">Search</button>
+                            <input type="text" id="search" className="block w-full md:w-[500px] p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-[#444444] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required ref={inputRef} />
+                            <button type="submit" className="text-white absolute end-2.5 bottom-2.5 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-4 py-2 bg-black hover:bg-black dark:focus:ring-blue-800" onClick={props.onClick}>Search</button>
                         </div>
+                     
                     </form>
 
   )
 }
-
 export default Input
