@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Input from './Input';
 import Toggle from './Toggle';
 import Time from './Time';
 
-const Navbar = () => {
+const Navbar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
 
 
+
     return (
+    
         <nav className="">
             <div className="container mx-auto px-4 flex items-center justify-between h-16">
 
@@ -44,7 +46,7 @@ const Navbar = () => {
                         } md:flex md:items-center space-y-2 md:space-y-0 md:space-x-4 absolute md:relative top-16 md:top-0 left-0 w-full justify-center bg-gray-800 md:bg-transparent px-4 md:px-0`}
                 >
 
-                    <Input />
+                    <Input onClick={props.onClick}/>
                 </div>
 
                 {/* time */}

@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import moment from 'moment'
 
 const Time = () => {
     const [date, setdate] = useState(moment().format('LTS'))
-
+useEffect(() => {
     setInterval(() => {
         setdate(moment().format('LTS'))
     }, 1000)
+}, [])
+
+
+
 
     return (
         <>

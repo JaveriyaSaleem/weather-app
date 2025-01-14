@@ -1,11 +1,13 @@
 import React from 'react'
 import { useRef } from 'react'
-
-// export let inputRef = useRef(null)
+export  let inputRef;
 
 const Input = (props) => {
+ inputRef = useRef("karachi")
+  
   return (
-                          <form className=''>
+      <form className=''>
+                           {   console.log(inputRef.current.value)}
                         <label htmlFor="search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -22,3 +24,4 @@ const Input = (props) => {
   )
 }
 export default Input
+

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./city.css";
 import moment from 'moment';
 
-const City = () => {
+const City = (props) => {
     const [momentTime, setMomentTime] = useState(moment().format('LT'));
     const [month, setMonth] = useState(moment().format('llll'))
     const [date, setDate] = useState(momentTime);
@@ -29,9 +29,9 @@ const City = () => {
 
     return (
         <div href="#" className="block max-w-sm p-6 bg-[#444444] rounded-xl box-shadow text-center">
-            <h5 className="mb-2 text-[36px] font-extrabold tracking-tight ">Karachi</h5>
-            <h5 className="mb-2 text-[96px] font-bold tracking-tight ">{date}</h5>
-            <p className="font-normal text-gray-700 dark:text-gray-400">{month}</p>
+            <h5 className="mb-2 text-[36px] font-extrabold tracking-tight ">{props.cities}</h5>
+            <h5 className="mb-2 text-[96px] font-bold tracking-tight ">{props.Dates ||date}</h5>
+            <p className="font-normal text-gray-700 dark:text-gray-400">{props.Months || month}</p>
         </div>
     );
 };
