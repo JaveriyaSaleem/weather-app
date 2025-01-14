@@ -11,6 +11,7 @@ import axios from 'axios';
 
 const App = () => {
   const [data, setdata] = useState()
+  const [date, setdate] = useState("")
 
   
 const apiKey = '0042bc4f7f30e066c405fba7b88a57fa'
@@ -31,6 +32,7 @@ console.log("Description: ",response.data.weather[0].description)
 const utcTime = new Date().getTime()
 const localTime = new Date(utcTime + response.data.timezone * 1000); 
       console.log("Local Time: ", localTime.toLocaleString()); 
+    
 
       console.log("data", data)
 }catch(e){
@@ -57,7 +59,13 @@ console.log("Description: ",response.data.weather[0].description)
 const utcTime = new Date().getTime()
 const localTime = new Date(utcTime + response.data.timezone * 1000); 
       console.log("Local Time: ", localTime.toLocaleString()); 
-      
+      let fullTime =  localTime.toLocaleString()
+      let time = fullTime.split(',')
+      let splitTime = time[1].split(":")
+      let newDate = splitTime[0]+":"+splitTime[1]
+      console.log(newDate)
+     setdate(newDate)
+  
 
       console.log("data", data)
 }catch(e){
@@ -75,6 +83,7 @@ useEffect(() => {
   
   return (
     <div className='poppins dark-gradient'>
+      {     console.log(date) }
       <Navbar onClick={getCity}/>
       <div className='grid grid-cols-3 px-4'>
         {/* Conditional rendering to avoid accessing properties of null */}
