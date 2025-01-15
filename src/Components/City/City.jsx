@@ -28,7 +28,7 @@ const City = (props) => {
     }, [momentTime]);
 
     return (
-        <div href="#" className="block max-w-sm p-6 bg-[#444444] rounded-xl box-shadow text-center">
+        <div href="#" className="flex flex-col items-center justify-center w-full py-5 sm:max-w-sm sm:py-5 sm:px-20 sm:h-96 bg-[#444444] rounded-xl box-shadow text-center ">
             <h5 className="mb-2 text-[36px] font-extrabold tracking-tight ">{props.cities}</h5>
             <h5 className="mb-2 text-[96px] font-bold tracking-tight ">{props.Dates ||date}</h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">{props.Months || month}</p>

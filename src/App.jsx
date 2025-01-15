@@ -85,7 +85,7 @@ useEffect(() => {
     <div className='poppins dark-gradient'>
       {     console.log(date) }
       <Navbar onClick={getCity}/>
-      <div className='grid grid-cols-3 px-4'>
+      <div className='flex flex-col md:flex-row justify-center items-center gap-4  w-full pt-14 px-2 sm:px-5'>
         {/* Conditional rendering to avoid accessing properties of null */}
         {data ? (
           <>
