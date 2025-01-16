@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import "../City/city.css";
 import Cloudy from "../../assets/img/cloudyy.png"
+import eye from "../../assets/img/eye.png"
+import humidity from "../../assets/img/humidity.png"
+import pressure from "../../assets/img/pressure.png"
+import wind from "../../assets/img/wind-1.png"
 
 
 const Weather = (props) => {
@@ -13,20 +17,20 @@ const Weather = (props) => {
             <h3><span className='text-[20px] md:text-[20px]'>Feels like:</span> <span className='text-[22px] md:text-[32px]'>{props.feelsLike}</span></h3>
             </div>
             <div className='font-extrabold flex flex-col items-center justify-center'>
-            <img src={Cloudy} alt="" className='w-[200px]'/>
+            <img src={Cloudy} alt="img" className='w-[200px]'/>
             <h3 className='text-[32px]'>{props.main}</h3>
             </div>
             <div className='font-extrabold flex flex-col items-center justify-center gap-3'>
             <div className='flex items-center  gap-8'>
-                <figure><img src="../../public/Image/humidity 1.png" alt="" /> <figcaption>{props.humidity}</figcaption></figure>
-                <figure><img src="../../public/Image/wind 1.png" alt="" /> <figcaption>{props.wind} m/s</figcaption></figure>
+                <figure><img src={humidity} alt="img" /> <figcaption>{props.humidity}</figcaption></figure>
+                <figure><img src={wind} alt="img" /> <figcaption>{props.wind} m/s</figcaption></figure>
             </div>
 
             <div className='flex items-center  gap-8'>
-                <figure><img src="../../public/Image/pressure-white 1.png" alt="" /> <figcaption>{props.
+                <figure><img src={pressure} alt="img" /> <figcaption>{props.
 pressure
 }</figcaption></figure>
-                <figure><img src="../../public/Image/eye.png" alt="" /> <figcaption>{props.visibility} m/s</figcaption></figure>
+                <figure><img src={eye} alt="img" /> <figcaption>{props.visibility} m/s</figcaption></figure>
             </div>
             </div>
 
