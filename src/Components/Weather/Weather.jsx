@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "../City/city.css";
+import Cloudy from "../../assets/img/cloudyy.png"
 
 
 const Weather = (props) => {
@@ -12,7 +13,7 @@ const Weather = (props) => {
             <h3><span className='text-[20px] md:text-[20px]'>Feels like:</span> <span className='text-[22px] md:text-[32px]'>{props.feelsLike}</span></h3>
             </div>
             <div className='font-extrabold flex flex-col items-center justify-center'>
-            <img src="../../public/Image/cloudyy.png" alt="" className='w-[200px]'/>
+            <img src={Cloudy} alt="" className='w-[200px]'/>
             <h3 className='text-[32px]'>{props.main}</h3>
             </div>
             <div className='font-extrabold flex flex-col items-center justify-center gap-3'>
