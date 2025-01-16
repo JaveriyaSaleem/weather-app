@@ -14,7 +14,7 @@ const Toggle = () => {
     }, [theme]);
 
     return (
-        <div className="text-center w-48">
+        <div className="sm:w-48">
             <button
                 onClick={toggleTheme}
                 className="px-4 py-2 text-white bg-blue-500 hover:bg-blue-600 rounded-full"

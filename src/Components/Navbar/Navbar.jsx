@@ -10,8 +10,8 @@ const Navbar = (props) => {
 
     return (
     
-        <nav className="">
-            <div className="container mx-auto px-4 flex items-center justify-between h-16">
+        <nav className="pb-10 md:pb-0">
+            <div className="px-4 flex items-center justify-between h-16">
 
 
                 {/* dark mode  */}
@@ -43,7 +43,7 @@ const Navbar = (props) => {
                 {/* Links */}
                 <div
                     className={`${isOpen ? 'block' : 'hidden'
-                        } md:flex md:items-center space-y-2 md:space-y-0 md:space-x-4 absolute md:relative top-16 md:top-0 left-0 w-full justify-center bg-gray-800 md:bg-transparent px-4 md:px-0`}
+                        } md:flex md:items-center space-y-2 md:space-y-0 md:space-x-4 absolute md:relative top-16 md:top-0 left-0 w-full justify-center  md:bg-transparent px-4 md:px-0`}
                 >
 
                     <Input onClick={props.onClick}/>
