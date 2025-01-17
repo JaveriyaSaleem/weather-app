@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import "../City/city.css";
-import Cloudy from "../../assets/img/cloudyy.png"
 import eye from "../../assets/img/eye.png"
 import humidity from "../../assets/img/humidity.png"
 import pressure from "../../assets/img/pressure.png"
 import wind from "../../assets/img/wind-1.png"
+// img of weather 
+import clearSky from "../../assets/img/sunnyy.png" //clear sky
+import clouds from "../../assets/img/few-clouds.png" //few clouds //scattered clouds
+import brokenClouds from "../../assets/img/cloudss.png" //broken clouds
+import showerRain from "../../assets/img/rainingg.png" //shower rain
+import rain from "../../assets/img/weather.png" //rain
+import thunderstorm from "../../assets/img/storm.png" //thunderstorm
+import snow from "../../assets/img/snowy.png" //snow
+import mist from "../../assets/img/mist.png" //mist
+
 
 
 const Weather = (props) => {
@@ -17,7 +26,7 @@ const Weather = (props) => {
             <h3><span className='text-[20px] md:text-[20px]'>Feels like:</span> <span className='text-[22px] md:text-[32px]'>{props.feelsLike}</span></h3>
             </div>
             <div className='font-extrabold flex flex-col items-center justify-center'>
-            <img src={Cloudy} alt="img" className='w-[200px]'/>
+            <img src={clearSky} alt="img" className='w-[200px]'/>
             <h3 className='text-[32px]'>{props.main}</h3>
             </div>
             <div className='font-extrabold flex flex-col items-center justify-center gap-3'>
