@@ -22,11 +22,12 @@ const Weather = (props) => {
     return (
         <div href="#" className="bg-[#444444] rounded-xl box-shadow flex flex-col justify-between md:flex-row py-5 w-full sm:max-w-screen-lg sm:py-5 h-[600px] md:h-96 px-5">
             <div className='font-extrabold flex flex-col items-center justify-center'>
+                <h1 className='text-[36px]'>{props.City}</h1>
             <h1 className='text-[60px] md:text-[80px]'>{props.temp}</h1>
             <h3><span className='text-[20px] md:text-[20px]'>Feels like:</span> <span className='text-[22px] md:text-[32px]'>{props.feelsLike}</span></h3>
             </div>
             <div className='font-extrabold flex flex-col items-center justify-center'>
-            <img src={clearSky} alt="img" className='w-[200px]'/>
+            <img src={props.src} alt="img" className='w-[200px]'/>
             <h3 className='text-[32px]'>{props.main}</h3>
             </div>
             <div className='font-extrabold flex flex-col items-center justify-center gap-3'>

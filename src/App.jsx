@@ -2,94 +2,64 @@ import React from 'react'
 import { useRef, useState , useEffect} from 'react'
 import Navbar from './Components/Navbar/Navbar'
 import './index.css'
-import City from './Components/City/City'
 import Weather from './Components/Weather/Weather'
 // import { inputRef } from './Components/Navbar/Input'
 import { inputRef } from './Components/Navbar/Input.jsx';
 import axios from 'axios';
-import { split } from 'postcss/lib/list'
-
+import Error from './Components/Error/Error.jsx'
+// img of weather 
+import clearSky from "./assets/img/sunnyy.png" //clear sky
+import clouds from "./assets/img/few-clouds.png" //few clouds //scattered clouds
+import brokenClouds from "./assets/img/cloudss.png" //broken clouds
+import showerRain from "./assets/img/rainingg.png" //shower rain
+import rain from "./assets/img/weather.png" //rain
+import thunderstorm from "./assets/img/storm.png" //thunderstorm
+import snow from "./assets/img/snowy.png" //snow
+import mist from "./assets/img/mist.png" //mist
 
 const App = () => {
   const [data, setdata] = useState()
-  const [timeOfCity, setTimeOfCity] = useState("")
-  const [dateOfCity, setDateOfCity] = useState("")
-  let [fullTime, setFullTime] = useState("")
-
+  const[error,setError]=useState(false)
+  const [weather,setWeather] =useState()
   
 const apiKey = '0042bc4f7f30e066c405fba7b88a57fa'
 const getCity = async(e)=>{
+  setError(false)
   e.preventDefault()
  const cityStore = inputRef.current.value || 'Karachi';
-  console.log(inputRef.current.value)
+  console.log(cityStore)
 try{
 let response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityStore}&appid=${apiKey}&units=metric`)
-console.log(response)
+console.log(response.data)
 setdata(response.data)
-console.log("temperature: ", response.data.main.temp)
-console.log("Feels Like: ", response.data.main.feels_like)
-console.log("City Name: ", response.data.name)
-console.log("Country: ",response.data.sys.country)
-console.log("timezone: ",response.data.timezone)
-console.log("Description: ",response.data.weather[0].description)
-const utcTime = new Date().getTime()
-const localTime = new Date(utcTime + response.data.timezone * 1000); 
-      console.log("Local Time: ", localTime.toLocaleString()); 
-      setFullTime(localTime.toLocaleString())
+console.log(response.data.weather[0].main)
+console.log(response.data.name)
+setWeather(data.weather[0].main)
       console.log("data", data)
 }catch(e){
   console.log(e)
+  setError(true)
 }
   
   inputRef.current.value = ""
 
 }
+// when component render 
 const getData = async()=>{
  
  const cityStore = inputRef.current.value || 'karachi';
   console.log(inputRef.current.value)
 try{
 let response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityStore}&appid=${apiKey}&units=metric`)
-console.log(response)
 setdata(response.data)
-console.log("temperature: ", response.data.main.temp)
-console.log("Feels Like: ", response.data.main.feels_like)
-console.log("City Name: ", response.data.name)
-console.log("Country: ",response.data.sys.country)
-console.log("timezone: ",response.data.timezone)
-console.log("Description: ",response.data.weather[0].description)
-const utcTime = new Date().getTime()
-const localTime = new Date(utcTime + response.data.timezone * 1000); 
-      console.log("Local Time: ", localTime); 
-      setFullTime(localTime) 
+console.log(response.data.name)
       console.log("data", data)
+
 }catch(e){
   console.log(e)
 }
-  
-  // inputRef.current.value = ""
 
 }
-useEffect(() => {
-  if (fullTime){
-    let timeSetting = fullTime.toString()
-    let time = timeSetting.split(" ")
-    let splitDate = time[0]+", "+time[1]+' '+time[2]
-    setDateOfCity(splitDate)
-    let forTime = fullTime.toLocaleString()
-    let splitForTime = forTime.split(",")
-    let splitTime = splitForTime[1]
-    console.log(splitTime)
-    let splitUsingColons = splitTime.split(":")
-    console.log(splitUsingColons)
-    let getSpecificTime = splitUsingColons[0]+":"+ splitUsingColons[1]
-    console.log(getSpecificTime)
-    setTimeOfCity(getSpecificTime)
-
-    // setdate(newDate)
-  }
-  
-}, [fullTime])
 
 useEffect(() => {
   console.log('hi')
@@ -104,15 +74,20 @@ useEffect(() => {
         {/* Conditional rendering to avoid accessing properties of null */}
         {data ? (
           <>
-            <City cities={data.name} Months={dateOfCity}  />
-            <Weather
+         {!error? (<Weather
+         
+         src={clearSky}
+            City={data.name}
               temp={`${data.main.temp}°C`}
               feelsLike={`${data.main.feels_like}°C`}
               humidity={`${data.main.humidity}%`}
               pressure={`${data.main.pressure} hPa`}
               wind={data.wind.deg}
               visibility={data.visibility}
-            />
+              
+            />):(<Error/>)}
+            
+            
           </>
         ) : (
           <p>Loading weather data...</p>
