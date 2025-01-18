@@ -25,17 +25,29 @@ const Toggle = () => {
         });
         switch(theme){
 case "light":
-    document.getElementById('pressure').src =  pressureBlack
-    document.getElementById('humidity').src =  humidityDark
-    document.getElementById('wind').src =  windDark
-    document.getElementById('visibility').src =  eyeDark
-    break;
-    case "dark":
-    document.getElementById('pressure').src =  pressure
-    document.getElementById('humidity').src =  humidityWhite
-    document.getElementById('wind').src =  windWhite
-    document.getElementById('visibility').src =  eyeWhite
-    break;
+    const pressureImg = document.getElementById("pressure");
+        const humidityImg = document.getElementById("humidity");
+        const windImg = document.getElementById("wind");
+        const visibilityImg = document.getElementById("visibility");
+        if (pressureImg) pressureImg.src = pressureBlack;
+        if (humidityImg) humidityImg.src = humidityDark;
+        if (windImg) windImg.src = windDark;
+        if (visibilityImg) visibilityImg.src = eyeDark;
+        break;
+        case "dark":
+            const pressureImgDark = document.getElementById("pressure");
+            const humidityImgDark = document.getElementById("humidity");
+            const windImgDark = document.getElementById("wind");
+            const visibilityImgDark = document.getElementById("visibility");
+    
+            // Check if the elements exist before trying to change the src
+            if (pressureImgDark) pressureImgDark.src = pressure;
+            if (humidityImgDark) humidityImgDark.src = humidityWhite;
+            if (windImgDark) windImgDark.src = windWhite;
+            if (visibilityImgDark) visibilityImgDark.src = eyeWhite;
+            break;
+          default:
+            break;
 
         }
     }, [theme]);
