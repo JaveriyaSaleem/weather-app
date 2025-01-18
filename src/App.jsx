@@ -15,12 +15,12 @@ import showerRain from "./assets/img/rainingg.png" //shower rain
 import rain from "./assets/img/weather.png" //rain
 import thunderstorm from "./assets/img/storm.png" //thunderstorm
 import snow from "./assets/img/snowy.png" //snow
-import mist from "./assets/img/mist.png" //mist
+import mist from "./assets/img/mist.png" //haze
 
 const App = () => {
   const [data, setdata] = useState()
   const[error,setError]=useState(false)
-  const [weather,setWeather] =useState()
+  const [img,setImg]= useState(clearSky)
   
 const apiKey = '0042bc4f7f30e066c405fba7b88a57fa'
 const getCity = async(e)=>{
@@ -34,8 +34,35 @@ console.log(response.data)
 setdata(response.data)
 console.log(response.data.weather[0].main)
 console.log(response.data.name)
-setWeather(data.weather[0].main)
       console.log("data", data)
+      switch(response.data.weather[0].main){
+        case "Haze" :
+          setImg(mist)
+          break;
+          case "Clouds" :
+          setImg(clouds)
+          break;
+          case "Clear" :
+          setImg(clearSky)
+          break;
+          case "Mist" :
+          setImg(mist)
+          break;
+          case "Smoke" :
+            setImg(mist)
+            break;
+            case "Snow" :
+            setImg(snow)
+            break;
+            case "Fog" :
+              setImg(mist)
+              break;
+              case "Rain" :
+                setImg(showerRain)
+                break;
+          default:
+            setImg(clearSky)
+      }
 }catch(e){
   console.log(e)
   setError(true)
@@ -54,6 +81,34 @@ let response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?
 setdata(response.data)
 console.log(response.data.name)
       console.log("data", data)
+      switch(response.data.weather[0].main){
+        case "Haze" :
+          setImg(mist)
+          break;
+          case "Clouds" :
+          setImg(clouds)
+          break;
+          case "Clear" :
+          setImg(clearSky)
+          break;
+          case "Mist" :
+          setImg(mist)
+          break;
+          case "Smoke" :
+            setImg(mist)
+            break;
+            case "Snow" :
+            setImg(snow)
+            break;
+            case "Fog" :
+              setImg(mist)
+              break;
+              case "Rain" :
+                setImg(showerRain)
+                break;
+          default:
+            setImg(clearSky)
+      }
 
 }catch(e){
   console.log(e)
@@ -76,8 +131,8 @@ useEffect(() => {
           <>
          {!error? (<Weather
          
-         src={clearSky}
-            City={data.name}
+         src={img}
+            City={data.name} main={data.weather[0].main}
               temp={`${data.main.temp}°C`}
               feelsLike={`${data.main.feels_like}°C`}
               humidity={`${data.main.humidity}%`}
