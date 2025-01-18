@@ -65,11 +65,7 @@ Follow these steps to run the Weather App locally:
 
 ## Screenshot 📸
 
-![Light Mode Screenshot](https://via.placeholder.com/800x400)  
-*Light Mode*  
-
-![Dark Mode Screenshot](https://via.placeholder.com/800x400)  
-*Dark Mode*
+<img src="src/assets/img/Weather App SS.png" />
 
 ---
 
